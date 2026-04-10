@@ -1,103 +1,97 @@
 const data = {
-
   mon: [
     {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T321", teacher:"DT"},
     {time:"15:05", display:"3:05 PM", subject:"EVS", room:"216", teacher:"-"}
   ],
-
   tue: [
     {time:"09:45", display:"9:45 AM", subject:"HRM Tutorial", room:"G1", teacher:"SC"},
     {time:"10:45", display:"10:45 AM", subject:"HRM", room:"G2", teacher:"SB"},
     {time:"14:05", display:"2:05 PM", subject:"DSC 2.1", room:"202", teacher:"DM"},
     {time:"15:05", display:"3:05 PM", subject:"DSC 2.2", room:"202", teacher:"SB"}
   ],
-
   wed: [
     {time:"08:45", display:"8:45 AM", subject:"GE II", room:"T321", teacher:"DT"},
     {time:"09:45", display:"9:45 AM", subject:"DSC 2.3", room:"202", teacher:"SB"},
-    {time:"10:45", display:"10:45 AM", subject:"DSC 2.2", room:"219", teacher:"SB"},
-    {time:"11:45", display:"11:45 AM", subject:"HRM Tutorial", room:"205", teacher:"SB"},
-    {time:"14:05", display:"2:05 PM", subject:"HRM Tutorial", room:"X7", teacher:"SC"}
+    {time:"10:45", display:"10:45 AM", subject:"DSC 2.2", room:"219", teacher:"SB"}
   ],
-
   thu: [
     {time:"08:45", display:"8:45 AM", subject:"AEC", room:"202", teacher:"EVS"},
-    {time:"09:45", display:"9:45 AM", subject:"DSC 2.3", room:"202", teacher:"SC"},
-    {time:"10:45", display:"10:45 AM", subject:"Tutorial", room:"CR-307", teacher:"-"},
-    {time:"11:45", display:"11:45 AM", subject:"Tutorial", room:"207", teacher:"-"}
+    {time:"09:45", display:"9:45 AM", subject:"DSC 2.3", room:"202", teacher:"SC"}
   ],
-
   fri: [
     {time:"08:45", display:"8:45 AM", subject:"DSC 2.1", room:"201", teacher:"DM"},
     {time:"09:45", display:"9:45 AM", subject:"Break", room:"-", teacher:"-"},
     {time:"10:45", display:"10:45 AM", subject:"Tutorial", room:"SB-205", teacher:"-"},
     {time:"11:45", display:"11:45 AM", subject:"DSC 2.2", room:"321", teacher:"SB"},
-    {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T301", teacher:"DT"},
-    {time:"15:05", display:"3:05 PM", subject:"GE (ANG)", room:"-", teacher:"ANG"}
+    {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T301", teacher:"DT"}
   ],
-
   sat: [
-    {time:"10:00", display:"Morning", subject:"SEC", room:"-", teacher:"-"},
-    {time:"12:00", display:"Midday", subject:"VAC", room:"-", teacher:"-"},
-    {time:"14:00", display:"Afternoon", subject:"AEC", room:"-", teacher:"-"}
+    {time:"10:00", display:"Morning", subject:"SEC", room:"-", teacher:"-"}
   ]
-
 };
 
-
-// convert HH:MM → minutes
-function toMinutes(time) {
-  const [h, m] = time.split(":").map(Number);
-  return h * 60 + m;
+function toMinutes(t) {
+  const [h,m] = t.split(":").map(Number);
+  return h*60 + m;
 }
 
-// current IST time
-function getCurrentIST() {
-  const now = new Date();
-  return now.getHours() * 60 + now.getMinutes();
+function getNow() {
+  const d = new Date();
+  return d.getHours()*60 + d.getMinutes();
 }
 
+function getToday() {
+  const days = ["sun","mon","tue","wed","thu","fri","sat"];
+  return days[new Date().getDay()];
+}
 
-function showDay(day) {
+function showDay(day, btn=null) {
   const container = document.getElementById("schedule");
   container.innerHTML = "";
 
-  const now = getCurrentIST();
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
 
-  if (!data[day] || data[day].length === 0) {
-    container.innerHTML = "<p>No classes</p>";
-    return;
-  }
+  const now = getNow();
+  let nextClass = null;
+  let foundCurrent = false;
 
   data[day].forEach(item => {
+    const t = toMinutes(item.time);
+    const isCurrent = Math.abs(now - t) < 60;
+    if(isCurrent) foundCurrent = true;
 
-    const classTime = toMinutes(item.time);
-
-    // detect current class (within 60 mins window)
-    const isCurrent = Math.abs(now - classTime) < 60;
-
-    const isBreak = item.subject.toLowerCase().includes("break");
+    if(t > now && !nextClass) nextClass = t;
 
     container.innerHTML += `
-      <div class="card ${isCurrent ? 'current' : ''}" 
-           style="${isBreak ? 'opacity:0.5;' : ''}">
-
-        <h3>${isBreak ? '☕' : '📘'} ${item.subject}</h3>
+      <div class="card ${isCurrent?'current':''}">
+        <h3>${item.subject.includes("Break")?'☕':'📘'} ${item.subject}</h3>
         <p>⏰ ${item.display}</p>
-        <p>📍 Room ${item.room}</p>
+        <p>📍 ${item.room}</p>
         <p>👩‍🏫 ${item.teacher}</p>
 
-        ${isCurrent ? `
-          <img 
-            src="https://media.tenor.com/6i7l1D9cZ4QAAAAi/shinchan.gif" 
-            style="position:absolute; right:10px; top:10px; width:60px;">
-        ` : ""}
-
+        ${isCurrent ? `<img class="shinchan" src="https://media.tenor.com/6i7l1D9cZ4QAAAAi/shinchan.gif">` : ''}
       </div>
     `;
   });
+
+  if(!foundCurrent){
+    container.innerHTML += `
+      <div class="sleep">
+        <img src="https://media.tenor.com/2roX3uxz_68AAAAi/shinchan-sleep.gif">
+        <p>No class right now 😴</p>
+      </div>
+    `;
+  }
+
+  const popup = document.getElementById("nextClassPopup");
+  if(nextClass){
+    const diff = nextClass - now;
+    popup.innerHTML = `⏳ Next class in ${diff} mins`;
+  } else {
+    popup.innerHTML = "🎉 No more classes today";
+  }
 }
 
-
-// default load
-showDay('mon');
+const today = getToday();
+showDay(today);
