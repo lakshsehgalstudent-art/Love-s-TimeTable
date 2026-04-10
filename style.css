@@ -1,13 +1,17 @@
+html {
+  font-size: 125%; /* 🔥 THIS is the main fix (25% bigger globally) */
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
-  padding: 24px 18px 120px; /* bottom padding for popup */
+  padding: 28px 20px 140px;
   background: #0b1d3a;
   color: white;
   text-align: center;
 }
 
-/* 🔥 Shinchan background */
+/* Background */
 body::before {
   content: "";
   position: fixed;
@@ -20,113 +24,101 @@ body::before {
 /* ================= HEADER ================= */
 
 h2 {
-  font-size: 26px; /* BIGGER */
+  font-size: 1.6rem; /* now bigger automatically */
   font-weight: 700;
-  margin: 10px 0 20px;
-  letter-spacing: 0.5px;
+  margin: 14px 0 24px;
 }
 
-/* Tabs container */
+/* Tabs */
 .tabs {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* full width buttons */
-  gap: 10px;
-  margin-bottom: 28px; /* 🔥 space before cards */
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 34px;
 }
 
-/* Buttons */
 .tabs button {
-  padding: 14px 0;
-  border-radius: 16px;
+  padding: 16px 0; /* 🔥 bigger tap area */
+  border-radius: 18px;
   border: none;
   background: #142a5c;
   color: white;
-  font-size: 15px;
+  font-size: 0.95rem;
   font-weight: 600;
-  cursor: pointer;
 }
 
-/* Active tab */
 .tabs button.active {
   background: #4c6fff;
-  box-shadow: 0 6px 18px rgba(76,111,255,0.4);
+  box-shadow: 0 8px 20px rgba(76,111,255,0.5);
 }
 
-/* ================= MAIN CONTENT ================= */
+/* ================= CARDS ================= */
 
-#schedule {
-  margin-top: 10px;
-}
-
-/* Cards */
 .card {
   display: grid;
-  grid-template-columns: 90px 1px 1fr auto;
+  grid-template-columns: 100px 1px 1fr auto;
+
+  background: rgba(20, 42, 92, 0.85);
+  backdrop-filter: blur(12px);
+
+  padding: 26px 20px; /* 🔥 bigger */
+  margin: 22px 0; /* 🔥 more spacing */
+
+  border-radius: 22px;
   align-items: center;
-
-  background: rgba(20, 42, 92, 0.75);
-  backdrop-filter: blur(10px);
-
-  padding: 22px 18px; /* 🔥 bigger */
-  margin: 18px 0; /* 🔥 spacing between cards */
-
-  border-radius: 20px;
 }
 
-/* Current class highlight */
 .card.current {
   border: 2px solid #4c6fff;
 }
 
-/* LEFT TIME */
+/* Time */
 .time {
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 600;
-  opacity: 0.9;
 }
 
 /* Divider */
 .divider {
   width: 1px;
-  height: 45px;
-  background: rgba(255,255,255,0.2);
+  height: 55px;
+  background: rgba(255,255,255,0.25);
 }
 
-/* CENTER INFO */
+/* Info */
 .info {
   text-align: center;
 }
 
 .info h3 {
+  font-size: 1.2rem; /* 🔥 big subject */
   margin: 0;
-  font-size: 18px; /* 🔥 bigger */
   font-weight: 700;
 }
 
 .info p {
-  margin: 4px 0;
-  font-size: 14px;
-  opacity: 0.85;
+  font-size: 0.95rem;
+  margin: 6px 0;
 }
 
-/* RIGHT TAG */
+/* Tags */
 .tag {
-  font-size: 11px;
-  padding: 6px 10px;
+  font-size: 0.75rem;
+  padding: 8px 12px;
   border-radius: 999px;
   font-weight: 600;
 }
 
 .tag.lecture {
-  background: rgba(76,111,255,0.2);
+  background: rgba(76,111,255,0.25);
 }
 
 .tag.tutorial {
-  background: rgba(168,85,247,0.2);
+  background: rgba(168,85,247,0.25);
 }
 
 .tag.break {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.2);
 }
 
 .tag.live {
@@ -135,7 +127,7 @@ h2 {
   animation: pulse 1s infinite;
 }
 
-/* 🔴 pulse */
+/* Pulse */
 @keyframes pulse {
   0% {opacity:1;}
   50% {opacity:0.5;}
@@ -146,38 +138,37 @@ h2 {
 .shinchan {
   position: absolute;
   right: 12px;
-  bottom: -10px;
-  width: 70px;
+  bottom: -12px;
+  width: 80px; /* 🔥 bigger */
 }
 
-/* ================= EMPTY STATE ================= */
+/* ================= EMPTY ================= */
 
 .sleep {
-  margin-top: 40px;
-  font-size: 18px; /* 🔥 bigger */
-  opacity: 0.9;
+  margin-top: 50px;
+  font-size: 1.1rem; /* 🔥 bigger */
 }
 
-/* ================= FOOTER POPUP ================= */
+/* ================= POPUP ================= */
 
 #nextClassPopup {
   position: fixed;
-  bottom: 25px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
 
   background: #4c6fff;
 
-  padding: 16px 26px; /* 🔥 bigger */
-  border-radius: 30px;
+  padding: 18px 30px;
+  border-radius: 32px;
 
-  font-size: 16px; /* 🔥 bigger */
+  font-size: 1rem; /* 🔥 bigger */
   font-weight: 600;
 
-  width: 88%; /* 🔥 wide like iOS */
-  max-width: 420px;
+  width: 90%;
+  max-width: 440px;
 
   text-align: center;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
 }
