@@ -129,10 +129,6 @@ function showDay(day, btn=null) {
 
   });
 
-  if(!currentCard){
-    container.innerHTML += `<div class="sleep">😴 No class right now</div>`;
-  }
-
   if(currentCard){
     setTimeout(() => {
       document.getElementById(currentCard).scrollIntoView({
