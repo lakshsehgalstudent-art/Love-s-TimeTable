@@ -56,7 +56,7 @@ h2 {
 
 .card {
   display: grid;
-  grid-template-columns: 130px 1px 1fr auto;
+  grid-template-columns: 100px 1px 1fr auto;
 
   background: rgba(20, 42, 92, 0.9);
   backdrop-filter: blur(14px);
@@ -75,9 +75,9 @@ h2 {
 
 /* TIME */
 .time {
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   font-weight: 700;
-  padding-left: 9px;
+  padding-left: 6px;
 }
 
 /* DIVIDER */
