@@ -29,7 +29,7 @@ const data = {
 
   fri: [
     {time:"08:45", display:"8:45 AM", subject:"DSC 2.1", room:"201", teacher:"DM"},
-    {time:"09:45", display:"9:45 AM", subject:"Break", room:"-", teacher:"-"},
+    {time:"09:45", display:"9:45 AM", subject:"Break"},
     {time:"10:45", display:"10:45 AM", subject:"Tutorial", room:"SB-205", teacher:"-"},
     {time:"11:45", display:"11:45 AM", subject:"DSC 2.2", room:"321", teacher:"SB"},
     {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T301", teacher:"DT"},
