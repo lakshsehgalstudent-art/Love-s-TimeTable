@@ -1,5 +1,5 @@
 html {
-  font-size: 125%; /* 🔥 THIS is the main fix (25% bigger globally) */
+  font-size: 125%;
 }
 
 body {
@@ -24,26 +24,26 @@ body::before {
 /* ================= HEADER ================= */
 
 h2 {
-  font-size: 1.6rem; /* now bigger automatically */
+  font-size: 1.8rem;
   font-weight: 700;
-  margin: 14px 0 24px;
+  margin: 18px 0 28px;
 }
 
 /* Tabs */
 .tabs {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  margin-bottom: 34px;
+  gap: 14px;
+  margin-bottom: 40px;
 }
 
 .tabs button {
-  padding: 16px 0; /* 🔥 bigger tap area */
-  border-radius: 18px;
+  padding: 18px 0;
+  border-radius: 20px;
   border: none;
   background: #142a5c;
   color: white;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -56,55 +56,70 @@ h2 {
 
 .card {
   display: grid;
-  grid-template-columns: 100px 1px 1fr auto;
+  grid-template-columns: 120px 1px 1fr auto;
 
   background: rgba(20, 42, 92, 0.85);
   backdrop-filter: blur(12px);
 
-  padding: 26px 20px; /* 🔥 bigger */
-  margin: 22px 0; /* 🔥 more spacing */
+  padding: 36px 24px;
+  margin: 28px 0;
 
-  border-radius: 22px;
+  border-radius: 26px;
   align-items: center;
+  position: relative;
 }
 
 .card.current {
   border: 2px solid #4c6fff;
 }
 
-/* Time */
+/* TIME */
 .time {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-/* Divider */
-.divider {
-  width: 1px;
-  height: 55px;
-  background: rgba(255,255,255,0.25);
-}
-
-/* Info */
-.info {
-  text-align: center;
-}
-
-.info h3 {
-  font-size: 1.2rem; /* 🔥 big subject */
-  margin: 0;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
-.info p {
-  font-size: 0.95rem;
-  margin: 6px 0;
+/* DIVIDER */
+.divider {
+  width: 1px;
+  height: 65px;
+  background: rgba(255,255,255,0.25);
 }
 
-/* Tags */
+/* CONTENT BLOCK */
+.content {
+  width: 100%;
+  text-align: center;
+}
+
+/* SUBJECT (MAIN FOCUS) */
+.subject {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+/* BOTTOM ROW (ROOM + TEACHER) */
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+/* LEFT */
+.room {
+  text-align: left;
+}
+
+/* RIGHT */
+.teacher {
+  text-align: right;
+}
+
+/* TAGS */
 .tag {
-  font-size: 0.75rem;
-  padding: 8px 12px;
+  font-size: 0.8rem;
+  padding: 10px 14px;
   border-radius: 999px;
   font-weight: 600;
 }
@@ -127,26 +142,27 @@ h2 {
   animation: pulse 1s infinite;
 }
 
-/* Pulse */
+/* LIVE PULSE */
 @keyframes pulse {
   0% {opacity:1;}
   50% {opacity:0.5;}
   100% {opacity:1;}
 }
 
-/* Shinchan */
+/* SHINCHAN */
 .shinchan {
   position: absolute;
   right: 12px;
   bottom: -12px;
-  width: 80px; /* 🔥 bigger */
+  width: 85px;
 }
 
 /* ================= EMPTY ================= */
 
 .sleep {
-  margin-top: 50px;
-  font-size: 1.1rem; /* 🔥 bigger */
+  margin-top: 60px;
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
 /* ================= POPUP ================= */
@@ -159,14 +175,14 @@ h2 {
 
   background: #4c6fff;
 
-  padding: 18px 30px;
+  padding: 20px 32px;
   border-radius: 32px;
 
-  font-size: 1rem; /* 🔥 bigger */
+  font-size: 1.1rem;
   font-weight: 600;
 
-  width: 90%;
-  max-width: 440px;
+  width: 92%;
+  max-width: 460px;
 
   text-align: center;
 
