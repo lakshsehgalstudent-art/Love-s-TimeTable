@@ -7,7 +7,7 @@ body {
   text-align: center;
 }
 
-/* 🔥 Proper Shinchan background */
+/* 🔥 Shinchan background */
 body::before {
   content: "";
   position: fixed;
@@ -24,14 +24,15 @@ body::before {
 .tabs {
   display: flex;
   overflow-x: auto;
-  gap: 12px;
-  padding: 10px 0;
+  gap: 14px;
+  padding: 12px 0;
 }
 
-/* 🔥 BIGGER buttons for mobile */
+/* 🔥 FIXED BUTTONS (iPhone friendly) */
 .tabs button {
   flex: 0 0 auto;
-  padding: 14px 22px;
+  min-width: 80px;              /* ensures proper width */
+  padding: 14px 20px;
   border: none;
   border-radius: 25px;
   background: #142a5c;
@@ -39,20 +40,25 @@ body::before {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+
+  /* 🔥 makes buttons feel like app buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 🔥 ACTIVE DAY */
 .tabs button.active {
   background: #4c6fff;
-  box-shadow: 0 0 10px rgba(76,111,255,0.7);
+  box-shadow: 0 0 12px rgba(76,111,255,0.8);
 }
 
 /* 🔥 Cards */
 .card {
   background: #142a5c;
   padding: 18px;
-  margin: 12px 0;
-  border-radius: 16px;
+  margin: 14px 0;
+  border-radius: 18px;
   text-align: left;
   position: relative;
   font-size: 16px;
@@ -61,6 +67,7 @@ body::before {
 /* 🔥 CURRENT CLASS */
 .card.current {
   border: 2px solid #4c6fff;
+  transform: scale(1.02);
 }
 
 /* 🔥 Shinchan sticker */
@@ -77,16 +84,41 @@ body::before {
   margin-top: 10px;
 }
 
-/* 🔥 BIG POPUP */
+/* 🔥 FIXED POPUP (IMPORTANT) */
 #nextClassPopup {
   position: fixed;
-  bottom: 20px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
+  
   background: #4c6fff;
-  padding: 14px 24px;
-  border-radius: 25px;
-  font-size: 16px;
+  padding: 16px 26px;
+  border-radius: 30px;
+
+  font-size: 17px;              /* bigger readable size */
   font-weight: 600;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+  max-width: 85%;               /* prevents overflow */
+  text-align: center;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* 🔥 EXTRA MOBILE OPTIMIZATION */
+@media (max-width: 430px) {
+
+  .tabs button {
+    min-width: 90px;
+    padding: 16px 22px;
+    font-size: 17px;
+  }
+
+  #nextClassPopup {
+    font-size: 18px;
+    padding: 18px 28px;
+  }
+
+  .card {
+    font-size: 17px;
+  }
 }
