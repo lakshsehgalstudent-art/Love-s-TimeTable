@@ -1,45 +1,65 @@
 const data = {
 
   mon: [
-    {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T321", teacher:"DT"},
-    {time:"15:05", display:"3:05 PM", subject:"EVS", room:"216", teacher:"-"}
+    {time:"10:45", display:"10:45 AM", subject:HRM", room:"R202", teacher:"Sunita Chhabra"},
+    {time:"11:45", display:"11:45 AM", subject:"Corporate Accounting", room:"R301", teacher:"Devendra Malapati"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"13:05", display:"1:05 PM", subject:"GE II", room:"Th321", teacher:"Drishti Joshi"},
+    {time:"14:05", display:"2:05 PM", subject:"EVS", room:"R216"},
+    {time:"15:05", display:"3:05 PM", subject:"EVS", room:"R216"}
   ],
 
   tue: [
-    {time:"09:45", display:"9:45 AM", subject:"HRM Tutorial", room:"G1", teacher:"SC"},
-    {time:"10:45", display:"10:45 AM", subject:"HRM", room:"G2", teacher:"SB"},
-    {time:"14:05", display:"2:05 PM", subject:"DSC 2.1", room:"202", teacher:"DM"},
-    {time:"15:05", display:"3:05 PM", subject:"DSC 2.2", room:"202", teacher:"SB"}
+    {time:"10:45", display:"10:45 AM", subject:"Claw Tut G1", room:"R205", teacher:"Sindhu Mani"},
+    {time:"11:45", display:"11:45 AM", subject:"HRM Tut G1", room:"R202", teacher:"Sunita Chhabra"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"13:05", display:"1:05 PM", subject:"Corporate Accounting", room:"R202", teacher:"Devendra Malapati"},
+    {time:"14:05", display:"2:05 PM", subject:"Company Law", room:"R202", teacher:"Sindhu Mani"},
+    {time:"15:05", display:"3:05 PM", subject:"VAC Semester II"},
+    {time:"16:05", display:"4:05 PM", subject:"VAC Semester II"}
   ],
 
   wed: [
-    {time:"08:45", display:"8:45 AM", subject:"GE II", room:"T321", teacher:"DT"},
-    {time:"09:45", display:"9:45 AM", subject:"DSC 2.3", room:"202", teacher:"SB"},
-    {time:"10:45", display:"10:45 AM", subject:"DSC 2.2", room:"219", teacher:"SB"},
-    {time:"11:45", display:"11:45 AM", subject:"HRM Tutorial", room:"205", teacher:"SB"},
-    {time:"14:05", display:"2:05 PM", subject:"HRM Tutorial", room:"X7", teacher:"SC"}
+    {time:"08:45", display:"8:45 AM", subject:"GE II", room:"Th321", teacher:"Drishti Joshi"},
+    {time:"09:45", display:"9:45 AM", subject:"HRM", room:"R202", teacher:"Sunita Chhabra"},
+    {time:"10:45", display:"10:45 AM", subject:"Company Law", room:"R219", teacher:"Sindhu Mani"},
+    {time:"11:45", display:"11:45 AM", subject:"Company Law Tutorial G2", room:"R205", teacher:"Sindhu Mani"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"13:05", display:"1:05 PM", subject:"HRM Tut G2", room:"R207", teacher:"Sunita Chhabra"},
+    {time:"14:05", display:"2:05 PM", subject:"Break 🎉"},
+    {time:"15:05", display:"3:05 PM", subject:"Break 🎉"}
   ],
 
   thu: [
-    {time:"08:45", display:"8:45 AM", subject:"AEC", room:"202", teacher:"EVS"},
-    {time:"09:45", display:"9:45 AM", subject:"DSC 2.3", room:"202", teacher:"SC"},
-    {time:"10:45", display:"10:45 AM", subject:"Tutorial", room:"CR-307", teacher:"-"},
-    {time:"11:45", display:"11:45 AM", subject:"Tutorial", room:"207", teacher:"-"}
+    {time:"08:45", display:"8:45 AM", subject:"EVS", room:"R202"},
+    {time:"09:45", display:"9:45 AM", subject:"HRM", room:"R202", teacher:"Sunita Chhabra"},
+    {time:"10:45", display:"10:45 AM", subject:"Corporate Accounting Tut", room:"R207", teacher:"P. Chengarayulu"},
+    {time:"11:45", display:"11:45 AM", subject:"HRM Tut G3", room:"R207", teacher:"Sunita Chhabra"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"13:05", display:"1:05 PM", subject:"Corporate Accounting Tut", room:"-", teacher:"P. Chengarayulu"}
   ],
 
   fri: [
-    {time:"08:45", display:"8:45 AM", subject:"DSC 2.1", room:"201", teacher:"DM"},
-    {time:"09:45", display:"9:45 AM", subject:"Break"},
-    {time:"10:45", display:"10:45 AM", subject:"Tutorial", room:"SB-205", teacher:"-"},
-    {time:"11:45", display:"11:45 AM", subject:"DSC 2.2", room:"321", teacher:"SB"},
-    {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T301", teacher:"DT"},
-    {time:"15:05", display:"3:05 PM", subject:"GE (ANG)", room:"-", teacher:"ANG"}
+    {time:"08:45", display:"8:45 AM", subject:"Corporate Accounting", room:"R201", teacher:"Devendra Malapati"},
+    {time:"09:45", display:"9:45 AM", subject:"Break 🎉"},
+    {time:"10:45", display:"10:45 AM", subject:"Company Law Tut G3", room:"R205", teacher:"Sindhu Mani"},
+    {time:"11:45", display:"11:45 AM", subject:"Company Law", room:"R321", teacher:"Sindhu Mani"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"13:05", display:"1:05 PM", subject:"GE II Practical", room:"-", teacher:"-"},
+    {time:"14:05", display:"2:05 PM", subject:"GE II Practical", room:"-", teacher:"-"},
+    {time:"15:05", display:"3:05 PM", subject:"GE II Practical", room:"-", teacher:"-"}
   ],
 
   sat: [
-    {time:"10:00", display:"Morning", subject:"SEC", room:"-", teacher:"-"},
-    {time:"12:00", display:"Midday", subject:"VAC", room:"-", teacher:"-"},
-    {time:"15:00", display:"Afternoon", subject:"AEC", room:"-", teacher:"-"}
+    {time:"08:45", display:"8:45 AM", subject:"SEC Semester II", room:"-", teacher:"-"},
+    {time:"09:45", display:"9:45 AM", subject:"SEC Semester II", room:"-", teacher:"-"},
+    {time:"10:45", display:"10:45 AM", subject:"SEC Semester II", room:"-", teacher:"-",
+    {time:"11:45", display:"11:45 AM", subject:"SEC Semester II", room:"-", teacher:"-"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"13:05", display:"1:05 PM", subject:"VAC Semester II", room:"-", teacher:"-"},
+    {time:"14:05", display:"2:05 PM", subject:"VAC Semester II", room:"-", teacher:"-"},
+    {time:"15:05", display:"3:05 PM", subject:"AEC Semester II", room:"-", teacher:"-"},
+    {time:"16:05", display:"4:05 PM", subject:"AEC Semester II", room:"-", teacher:"-"}
   ]
 
 };
