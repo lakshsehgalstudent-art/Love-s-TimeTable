@@ -118,6 +118,7 @@ h2 {
 /* RIGHT */
 .teacher {
   text-align: right;
+  padding-right: 30px;
 }
 
 /* TAG */
