@@ -56,13 +56,13 @@ h2 {
 
 .card {
   display: grid;
-  grid-template-columns: 120px 1px 1fr auto;
+  grid-template-columns: 110px 1px 1fr auto;
 
   background: rgba(20, 42, 92, 0.85);
   backdrop-filter: blur(12px);
 
-  padding: 36px 24px;
-  margin: 28px 0;
+  padding: 40px 34px; /* 🔥 main spacing fix */
+  margin: 30px 0;
 
   border-radius: 26px;
   align-items: center;
@@ -77,6 +77,7 @@ h2 {
 .time {
   font-size: 1.1rem;
   font-weight: 700;
+  padding-left: 10px; /* 🔥 push from left edge */
 }
 
 /* DIVIDER */
@@ -84,26 +85,29 @@ h2 {
   width: 1px;
   height: 65px;
   background: rgba(255,255,255,0.25);
+  margin: 0 18px; /* 🔥 spacing around divider */
 }
 
-/* CONTENT BLOCK */
+/* CONTENT */
 .content {
   width: 100%;
   text-align: center;
+  padding: 0 10px;
 }
 
-/* SUBJECT (MAIN FOCUS) */
+/* SUBJECT */
 .subject {
   font-size: 1.7rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-/* BOTTOM ROW (ROOM + TEACHER) */
+/* ROOM + TEACHER ROW */
 .bottomRow {
   display: flex;
   justify-content: space-between;
   font-size: 1.1rem;
+  padding: 0 10px; /* 🔥 internal spacing */
 }
 
 /* LEFT */
@@ -116,12 +120,13 @@ h2 {
   text-align: right;
 }
 
-/* TAGS */
+/* TAG */
 .tag {
   font-size: 0.8rem;
-  padding: 10px 14px;
+  padding: 10px 16px;
   border-radius: 999px;
   font-weight: 600;
+  margin-right: 10px; /* 🔥 pushes away from edge */
 }
 
 .tag.lecture {
@@ -152,7 +157,7 @@ h2 {
 /* SHINCHAN */
 .shinchan {
   position: absolute;
-  right: 12px;
+  right: 18px; /* 🔥 moved inward */
   bottom: -12px;
   width: 85px;
 }
