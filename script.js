@@ -44,7 +44,7 @@ const data = {
 
 };
 
-/* ---------- TIME HELPERS ---------- */
+/* ---------- TIME ---------- */
 
 function toMinutes(t) {
   const [h,m] = t.split(":").map(Number);
@@ -71,8 +71,9 @@ function formatTime(diff){
 /* ---------- TAG ---------- */
 
 function getTag(subject){
-  if(subject.toLowerCase().includes("break")) return "break";
-  if(subject.toLowerCase().includes("tutorial")) return "tutorial";
+  const s = subject.toLowerCase();
+  if(s.includes("break")) return "break";
+  if(s.includes("tutorial")) return "tutorial";
   return "lecture";
 }
 
@@ -81,6 +82,8 @@ function getTag(subject){
 function showDay(day, btn=null) {
 
   const container = document.getElementById("schedule");
+
+  /* reset */
   container.innerHTML = "";
 
   document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
@@ -90,6 +93,9 @@ function showDay(day, btn=null) {
   let nextClass = null;
   let currentCard = null;
 
+  /* build UI in one string (better performance + no flicker) */
+  let html = "";
+
   data[day].forEach((item, index) => {
 
     const t = toMinutes(item.time);
@@ -98,27 +104,35 @@ function showDay(day, btn=null) {
     if(t > now && !nextClass) nextClass = t;
 
     const tag = getTag(item.subject);
-
     const cardId = `card-${index}`;
 
-    container.innerHTML += `
-      <div id="${cardId}" class="card ${isCurrent?'current':''}">
+    html += `
+      <div id="${cardId}" class="card ${isCurrent ? 'current' : ''}">
         
+        <!-- LEFT TIME -->
         <div class="time">${item.display}</div>
 
+        <!-- DIVIDER -->
+        <div class="divider"></div>
+
+        <!-- CENTER INFO -->
         <div class="info">
           <h3>${item.subject}</h3>
-          <p>📍 ${item.room} | 👤 ${item.teacher}</p>
+          <p>📍 ${item.room}</p>
+          <p>👤 ${item.teacher}</p>
         </div>
 
-        <div class="tag ${tag}">
+        <!-- RIGHT TAG -->
+        <div class="tag ${isCurrent ? 'live' : tag}">
           ${isCurrent ? '🔴 LIVE' : tag.toUpperCase()}
         </div>
 
+        <!-- SHINCHAN -->
         ${isCurrent ? `
           <img class="shinchan" 
           src="https://media.tenor.com/6i7l1D9cZ4QAAAAi/shinchan.gif">
         ` : ''}
+
       </div>
     `;
 
@@ -126,16 +140,18 @@ function showDay(day, btn=null) {
 
   });
 
-  /* 🔥 NO CLASS */
+  /* NO CLASS */
   if(!currentCard){
-    container.innerHTML += `
+    html += `
       <div class="sleep">
         😴 No class right now
       </div>
     `;
   }
 
-  /* 🔥 AUTO SCROLL */
+  container.innerHTML = html;
+
+  /* AUTO SCROLL */
   if(currentCard){
     setTimeout(() => {
       document.getElementById(currentCard).scrollIntoView({
@@ -145,7 +161,7 @@ function showDay(day, btn=null) {
     }, 300);
   }
 
-  /* 🔥 POPUP */
+  /* POPUP */
   const popup = document.getElementById("nextClassPopup");
 
   if(nextClass){
