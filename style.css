@@ -1,7 +1,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
-  padding: 14px;
+  padding: 12px;
   background: linear-gradient(180deg, #0b1d3a, #09152b);
   color: white;
 }
@@ -11,7 +11,7 @@ body::before {
   content: "";
   position: fixed;
   background: url("https://wallpapercave.com/wp/wp14903847.webp") center/cover;
-  opacity: 0.06;
+  opacity: 0.05;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -25,21 +25,21 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* 🔥 Tabs */
+/* 🔥 TABS BIGGER */
 .tabs {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 .tabs button {
   flex: 1;
-  padding: 16px 0;
+  padding: 18px 0;
   border-radius: 14px;
   border: none;
   background: rgba(255,255,255,0.08);
   color: white;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -47,16 +47,12 @@ h2 {
   background: #4c6fff;
 }
 
-/* 🔥 CARD (CENTERED DESIGN) */
+/* 🔥 CARD (3 COLUMN LAYOUT) */
 .card {
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 16px;
-
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  padding: 18px;
+  margin-bottom: 14px;
 
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(14px);
@@ -69,32 +65,44 @@ h2 {
   border: 2px solid #4c6fff;
 }
 
-/* 🔥 TIME */
+/* 🔥 TIME (LEFT) */
 .time {
-  font-size: 20px;
+  width: 85px;
+  text-align: left;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 6px;
 }
 
-/* 🔥 SUBJECT */
+/* 🔥 DIVIDER */
+.divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 14px;
+}
+
+/* 🔥 CENTER CONTENT */
+.info {
+  flex: 1;
+  text-align: center;
+}
+
 .info h3 {
   font-size: 20px;
-  margin: 6px 0;
+  margin: 0;
   font-weight: 700;
 }
 
-/* 🔥 DETAILS */
 .info p {
-  font-size: 16px;
+  font-size: 15px;
   margin: 4px 0;
   color: #cfd8ff;
 }
 
-/* 🔥 TAG */
+/* 🔥 TAG (RIGHT) */
 .tag {
-  margin-top: 10px;
   font-size: 13px;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: 999px;
   font-weight: 600;
 }
@@ -103,20 +111,26 @@ h2 {
 .tutorial { background: rgba(168,85,247,0.2); color:#c084fc; }
 .break { background: rgba(100,116,139,0.2); color:#94a3b8; }
 
+/* 🔴 LIVE */
+.live {
+  background: rgba(76,111,255,0.3);
+  color: #4c6fff;
+}
+
 /* 🔥 SHINCHAN */
 .shinchan {
-  width: 70px;
-  margin-top: 8px;
+  width: 55px;
+  margin-left: 8px;
 }
 
-/* 🔥 NO CLASS TEXT */
+/* 🔥 NO CLASS */
 .sleep {
   text-align: center;
-  font-size: 22px;
-  margin-top: 25px;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
-/* 🔥 POPUP (BIGGER + CENTERED) */
+/* 🔥 POPUP BIGGER */
 #nextClassPopup {
   position: fixed;
   bottom: 25px;
@@ -132,6 +146,5 @@ h2 {
 
   font-size: 20px;
   font-weight: 700;
-
   text-align: center;
 }
