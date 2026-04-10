@@ -1,43 +1,11 @@
-const data = {
-  mon: [
-    {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T321", teacher:"DT"},
-    {time:"15:05", display:"3:05 PM", subject:"EVS", room:"216", teacher:"-"}
-  ],
-  tue: [
-    {time:"09:45", display:"9:45 AM", subject:"HRM Tutorial", room:"G1", teacher:"SC"},
-    {time:"10:45", display:"10:45 AM", subject:"HRM", room:"G2", teacher:"SB"},
-    {time:"14:05", display:"2:05 PM", subject:"DSC 2.1", room:"202", teacher:"DM"},
-    {time:"15:05", display:"3:05 PM", subject:"DSC 2.2", room:"202", teacher:"SB"}
-  ],
-  wed: [
-    {time:"08:45", display:"8:45 AM", subject:"GE II", room:"T321", teacher:"DT"},
-    {time:"09:45", display:"9:45 AM", subject:"DSC 2.3", room:"202", teacher:"SB"},
-    {time:"10:45", display:"10:45 AM", subject:"DSC 2.2", room:"219", teacher:"SB"}
-  ],
-  thu: [
-    {time:"08:45", display:"8:45 AM", subject:"AEC", room:"202", teacher:"EVS"},
-    {time:"09:45", display:"9:45 AM", subject:"DSC 2.3", room:"202", teacher:"SC"}
-  ],
-  fri: [
-    {time:"08:45", display:"8:45 AM", subject:"DSC 2.1", room:"201", teacher:"DM"},
-    {time:"09:45", display:"9:45 AM", subject:"Break", room:"-", teacher:"-"},
-    {time:"10:45", display:"10:45 AM", subject:"Tutorial", room:"SB-205", teacher:"-"},
-    {time:"11:45", display:"11:45 AM", subject:"DSC 2.2", room:"321", teacher:"SB"},
-    {time:"14:05", display:"2:05 PM", subject:"GE II", room:"T301", teacher:"DT"}
-  ],
-  sat: [
-    {time:"10:00", display:"Morning", subject:"SEC", room:"-", teacher:"-"}
-  ]
-};
-
 function toMinutes(t) {
   const [h,m] = t.split(":").map(Number);
   return h*60 + m;
 }
 
-function getNow() {
-  const d = new Date();
-  return d.getHours()*60 + d.getMinutes();
+function getNowIST() {
+  const now = new Date();
+  return now.getHours()*60 + now.getMinutes();
 }
 
 function getToday() {
@@ -45,27 +13,36 @@ function getToday() {
   return days[new Date().getDay()];
 }
 
+function formatTime(diff) {
+  let hours = Math.floor(diff / 60);
+  let minutes = diff % 60;
+
+  if(hours > 0) return `${hours}h ${minutes}m`;
+  return `${minutes}m`;
+}
+
 function showDay(day, btn=null) {
   const container = document.getElementById("schedule");
   container.innerHTML = "";
 
-  document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+  const buttons = document.querySelectorAll(".tabs button");
+  buttons.forEach(b => b.classList.remove("active"));
   if(btn) btn.classList.add("active");
 
-  const now = getNow();
-  let nextClass = null;
+  const now = getNowIST();
+  let nextClassTime = null;
   let foundCurrent = false;
 
   data[day].forEach(item => {
     const t = toMinutes(item.time);
-    const isCurrent = Math.abs(now - t) < 60;
-    if(isCurrent) foundCurrent = true;
+    const isCurrent = now >= t && now < t + 60;
 
-    if(t > now && !nextClass) nextClass = t;
+    if(isCurrent) foundCurrent = true;
+    if(t > now && !nextClassTime) nextClassTime = t;
 
     container.innerHTML += `
-      <div class="card ${isCurrent?'current':''}">
-        <h3>${item.subject.includes("Break")?'☕':'📘'} ${item.subject}</h3>
+      <div class="card ${isCurrent ? 'current' : ''}">
+        <h3>${item.subject.includes("Break") ? '☕' : '📘'} ${item.subject}</h3>
         <p>⏰ ${item.display}</p>
         <p>📍 ${item.room}</p>
         <p>👩‍🏫 ${item.teacher}</p>
@@ -85,13 +62,18 @@ function showDay(day, btn=null) {
   }
 
   const popup = document.getElementById("nextClassPopup");
-  if(nextClass){
-    const diff = nextClass - now;
-    popup.innerHTML = `⏳ Next class in ${diff} mins`;
+
+  if(nextClassTime){
+    const diff = nextClassTime - now;
+    popup.innerHTML = `⏳ Next class in ${formatTime(diff)}`;
   } else {
     popup.innerHTML = "🎉 No more classes today";
   }
 }
 
-const today = getToday();
-showDay(today);
+/* 🔥 AUTO SELECT TODAY + HIGHLIGHT */
+window.onload = () => {
+  const today = getToday();
+  const btn = document.querySelector(`button[onclick*="${today}"]`);
+  showDay(today, btn);
+};
