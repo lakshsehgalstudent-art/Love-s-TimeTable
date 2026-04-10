@@ -1,22 +1,22 @@
 const data = {
 
   mon: [
-    {time:"10:45", display:"10:45 AM", subject:HRM", room:"R202", teacher:"Sunita Chhabra"},
+    {time:"10:45", display:"10:45 AM", subject:"HRM", room:"R202", teacher:"Sunita Chhabra"},
     {time:"11:45", display:"11:45 AM", subject:"Corporate Accounting", room:"R301", teacher:"Devendra Malapati"},
-    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉", room:"-", teacher:"-"},
     {time:"13:05", display:"1:05 PM", subject:"GE II", room:"Th321", teacher:"Drishti Joshi"},
-    {time:"14:05", display:"2:05 PM", subject:"EVS", room:"R216"},
-    {time:"15:05", display:"3:05 PM", subject:"EVS", room:"R216"}
+    {time:"14:05", display:"2:05 PM", subject:"EVS", room:"R216", teacher:"-"},
+    {time:"15:05", display:"3:05 PM", subject:"EVS", room:"R216", teacher:"-"}
   ],
 
   tue: [
     {time:"10:45", display:"10:45 AM", subject:"Claw Tut G1", room:"R205", teacher:"Sindhu Mani"},
     {time:"11:45", display:"11:45 AM", subject:"HRM Tut G1", room:"R202", teacher:"Sunita Chhabra"},
-    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉", room:"-", teacher:"-"},
     {time:"13:05", display:"1:05 PM", subject:"Corporate Accounting", room:"R202", teacher:"Devendra Malapati"},
     {time:"14:05", display:"2:05 PM", subject:"Company Law", room:"R202", teacher:"Sindhu Mani"},
-    {time:"15:05", display:"3:05 PM", subject:"VAC Semester II"},
-    {time:"16:05", display:"4:05 PM", subject:"VAC Semester II"}
+    {time:"15:05", display:"3:05 PM", subject:"VAC Semester II", room:"-", teacher:"-"},
+    {time:"16:05", display:"4:05 PM", subject:"VAC Semester II", room:"-", teacher:"-"}
   ],
 
   wed: [
@@ -24,27 +24,27 @@ const data = {
     {time:"09:45", display:"9:45 AM", subject:"HRM", room:"R202", teacher:"Sunita Chhabra"},
     {time:"10:45", display:"10:45 AM", subject:"Company Law", room:"R219", teacher:"Sindhu Mani"},
     {time:"11:45", display:"11:45 AM", subject:"Company Law Tutorial G2", room:"R205", teacher:"Sindhu Mani"},
-    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉", room:"-", teacher:"-"},
     {time:"13:05", display:"1:05 PM", subject:"HRM Tut G2", room:"R207", teacher:"Sunita Chhabra"},
-    {time:"14:05", display:"2:05 PM", subject:"Break 🎉"},
-    {time:"15:05", display:"3:05 PM", subject:"Break 🎉"}
+    {time:"14:05", display:"2:05 PM", subject:"Break 🎉", room:"-", teacher:"-"},
+    {time:"15:05", display:"3:05 PM", subject:"Break 🎉", room:"-", teacher:"-"}
   ],
 
   thu: [
-    {time:"08:45", display:"8:45 AM", subject:"EVS", room:"R202"},
+    {time:"08:45", display:"8:45 AM", subject:"EVS", room:"R202", teacher:"-"},
     {time:"09:45", display:"9:45 AM", subject:"HRM", room:"R202", teacher:"Sunita Chhabra"},
     {time:"10:45", display:"10:45 AM", subject:"Corporate Accounting Tut", room:"R207", teacher:"P. Chengarayulu"},
     {time:"11:45", display:"11:45 AM", subject:"HRM Tut G3", room:"R207", teacher:"Sunita Chhabra"},
-    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉", room:"-", teacher:"-"},
     {time:"13:05", display:"1:05 PM", subject:"Corporate Accounting Tut", room:"-", teacher:"P. Chengarayulu"}
   ],
 
   fri: [
     {time:"08:45", display:"8:45 AM", subject:"Corporate Accounting", room:"R201", teacher:"Devendra Malapati"},
-    {time:"09:45", display:"9:45 AM", subject:"Break 🎉"},
+    {time:"09:45", display:"9:45 AM", subject:"Break 🎉", room:"-", teacher:"-"},
     {time:"10:45", display:"10:45 AM", subject:"Company Law Tut G3", room:"R205", teacher:"Sindhu Mani"},
     {time:"11:45", display:"11:45 AM", subject:"Company Law", room:"R321", teacher:"Sindhu Mani"},
-    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉", room:"-", teacher:"-"},
     {time:"13:05", display:"1:05 PM", subject:"GE II Practical", room:"-", teacher:"-"},
     {time:"14:05", display:"2:05 PM", subject:"GE II Practical", room:"-", teacher:"-"},
     {time:"15:05", display:"3:05 PM", subject:"GE II Practical", room:"-", teacher:"-"}
@@ -53,9 +53,9 @@ const data = {
   sat: [
     {time:"08:45", display:"8:45 AM", subject:"SEC Semester II", room:"-", teacher:"-"},
     {time:"09:45", display:"9:45 AM", subject:"SEC Semester II", room:"-", teacher:"-"},
-    {time:"10:45", display:"10:45 AM", subject:"SEC Semester II", room:"-", teacher:"-",
+    {time:"10:45", display:"10:45 AM", subject:"SEC Semester II", room:"-", teacher:"-"},
     {time:"11:45", display:"11:45 AM", subject:"SEC Semester II", room:"-", teacher:"-"},
-    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉"},
+    {time:"12:45", display:"12:45 PM", subject:"Lunch Break 🎉", room:"-", teacher:"-"},
     {time:"13:05", display:"1:05 PM", subject:"VAC Semester II", room:"-", teacher:"-"},
     {time:"14:05", display:"2:05 PM", subject:"VAC Semester II", room:"-", teacher:"-"},
     {time:"15:05", display:"3:05 PM", subject:"AEC Semester II", room:"-", teacher:"-"},
@@ -122,7 +122,6 @@ function showDay(day, btn=null) {
       <div id="${cardId}" class="card ${isCurrent?'current':''}">
         
         <div class="time">${item.display}</div>
-
         <div class="divider"></div>
 
         <div class="content">
@@ -134,13 +133,9 @@ function showDay(day, btn=null) {
           </div>
         </div>
 
-        <div class="tag ${tag}">
+        <div class="tag ${isCurrent ? 'live' : tag}">
           ${isCurrent ? '🔴 LIVE' : tag.toUpperCase()}
         </div>
-
-        ${isCurrent ? `
-          <img class="shinchan" src="https://media.tenor.com/6i7l1D9cZ4QAAAAi/shinchan.gif">
-        ` : ''}
 
       </div>
     `;
