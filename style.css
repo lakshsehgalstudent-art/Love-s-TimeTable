@@ -52,19 +52,19 @@ h2 {
   box-shadow: 0 8px 20px rgba(76,111,255,0.5);
 }
 
-/* ================= CARDS ================= */
+/* ================= CARDS (AGGRESSIVE SPACING FIX) ================= */
 
 .card {
   display: grid;
-  grid-template-columns: 110px 1px 1fr auto;
+  grid-template-columns: 130px 1px 1fr auto;
 
-  background: rgba(20, 42, 92, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(20, 42, 92, 0.9);
+  backdrop-filter: blur(14px);
 
-  padding: 40px 34px; /* 🔥 main spacing fix */
-  margin: 30px 0;
+  padding: 48px 42px;
+  margin: 34px 0;
 
-  border-radius: 26px;
+  border-radius: 28px;
   align-items: center;
   position: relative;
 }
@@ -75,39 +75,39 @@ h2 {
 
 /* TIME */
 .time {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  padding-left: 10px; /* 🔥 push from left edge */
+  padding-left: 18px;
 }
 
 /* DIVIDER */
 .divider {
   width: 1px;
-  height: 65px;
+  height: 70px;
   background: rgba(255,255,255,0.25);
-  margin: 0 18px; /* 🔥 spacing around divider */
+  margin: 0 22px;
 }
 
 /* CONTENT */
 .content {
   width: 100%;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 /* SUBJECT */
 .subject {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-/* ROOM + TEACHER ROW */
+/* ROOM + TEACHER */
 .bottomRow {
   display: flex;
   justify-content: space-between;
-  font-size: 1.1rem;
-  padding: 0 10px; /* 🔥 internal spacing */
+  font-size: 1.15rem;
+  padding: 0 12px;
 }
 
 /* LEFT */
@@ -122,11 +122,11 @@ h2 {
 
 /* TAG */
 .tag {
-  font-size: 0.8rem;
-  padding: 10px 16px;
+  font-size: 0.85rem;
+  padding: 12px 18px;
   border-radius: 999px;
   font-weight: 600;
-  margin-right: 10px; /* 🔥 pushes away from edge */
+  margin-right: 18px;
 }
 
 .tag.lecture {
@@ -157,7 +157,7 @@ h2 {
 /* SHINCHAN */
 .shinchan {
   position: absolute;
-  right: 18px; /* 🔥 moved inward */
+  right: 22px;
   bottom: -12px;
   width: 85px;
 }
