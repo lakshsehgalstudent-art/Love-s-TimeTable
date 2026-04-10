@@ -92,6 +92,12 @@ function getTag(subject){
   return "lecture";
 }
 
+/* ---------- NEW CLEAN HELPERS ---------- */
+
+function isValid(value){
+  return value && value !== "-" && value !== "undefined";
+}
+
 /* ---------- MAIN ---------- */
 
 function showDay(day, btn=null) {
@@ -116,6 +122,14 @@ function showDay(day, btn=null) {
     const tag = getTag(item.subject);
     const cardId = `card-${index}`;
 
+    // 🔥 CONDITIONAL RENDERING
+    const roomHTML = isValid(item.room) ? `<div class="room">📍 ${item.room}</div>` : '';
+    const teacherHTML = isValid(item.teacher) ? `<div class="teacher">👤 ${item.teacher}</div>` : '';
+
+    const bottomRow = (roomHTML || teacherHTML)
+      ? `<div class="bottomRow">${roomHTML}${teacherHTML}</div>`
+      : '';
+
     container.innerHTML += `
       <div id="${cardId}" class="card ${isCurrent?'current':''}">
         
@@ -124,11 +138,7 @@ function showDay(day, btn=null) {
 
         <div class="content">
           <div class="subject">${item.subject}</div>
-
-          <div class="bottomRow">
-            <div class="room">📍 ${item.room}</div>
-            <div class="teacher">👤 ${item.teacher}</div>
-          </div>
+          ${bottomRow}
         </div>
 
         <div class="tag ${isCurrent ? 'live' : tag}">
